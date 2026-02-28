@@ -6,13 +6,13 @@ function signup() {
 
   console.log("SENDING:", email, password); // 👈 ADD THIS
 
-  fetch("https://water-tracker-backend-l05z.onrender.com", {
+  fetch("https://water-tracker-backend-l05z.onrender.com/signup"), {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ email, password })
-  })
+  }
   .then(res => res.text())
   .then(data => alert(data));
   
