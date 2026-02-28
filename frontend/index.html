@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Water Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>💧 Water Tracker</h1>
+
+<h2>Signup</h2>
+<input id="signupEmail" placeholder="Email">
+<input id="signupPassword" type="password" placeholder="Password">
+<button onclick="signup()">Signup</button>
+
+<h2>Login</h2>
+<input id="loginEmail" placeholder="Email">
+<input id="loginPassword" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+
+<hr>
+<div class="bar">
+  <div id="fill"></div>
+</div>
+<div id="tracker" style="display:none;">
+  <h2>Water Tracker</h2>
+  <p id="progress">0 / 2000 ml</p>
+
+  <button onclick="addWater(250)">+250 ml</button>
+  <button onclick="addWater(500)">+500 ml</button>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+<script src="script.js"></script>
+</body>
+</html>
