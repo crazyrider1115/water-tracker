@@ -19,7 +19,9 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: "*"
+  origin: "https://watertrackerbydeevafan.netlify.app",
+  methods: ["GET", "POST"],
+  credentials: true
 }));
 app.use(express.json());
 
