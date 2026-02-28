@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/waterTracker")
+mongoose.connect("mongodb+srv://ashlenaroseds22_db_user:anwXdAc64bJdgVlv@cluster0.rx2t7xo.mongodb.net/waterTracker")
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => console.log(err));
 
