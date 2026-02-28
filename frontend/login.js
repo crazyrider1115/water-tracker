@@ -6,7 +6,7 @@ function signup() {
 
   console.log("SENDING:", email, password); // 👈 ADD THIS
 
-  fetch("http://localhost:3000/signup", {
+  fetch("https://water-tracker-backend-l05z.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -26,7 +26,7 @@ function login() {
   const email = document.getElementById("email").value.trim().toLowerCase();
   const password = document.getElementById("password").value.trim();
 
-  fetch("http://localhost:3000/login", {
+  fetch("https://water-tracker-backend-l05z.onrender.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

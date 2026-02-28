@@ -22,7 +22,7 @@ window.onload = function () {
   document.getElementById("goalInput").value = total;
 
   // 💧 fetch water
-  fetch("http://localhost:3000/get-water", {
+  fetch("https://water-tracker-backend-l05z.onrender.com/get-water", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -40,7 +40,7 @@ window.onload = function () {
 function addWater(amount) {
   const email = localStorage.getItem("user");
 
-  fetch("http://localhost:3000/update-water", {
+  fetch("https://water-tracker-backend-l05z.onrender.com/update-water", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -103,7 +103,7 @@ function resetWater() {
 
   if (!confirm("Reset all water?")) return;
 
-  fetch("http://localhost:3000/update-water", {
+  fetch("https://water-tracker-backend-l05z.onrender.com/update-water", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
