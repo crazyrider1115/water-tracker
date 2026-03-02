@@ -1,8 +1,11 @@
+const BASE_URL = "https://water-tracker-backend-l05z.onrender.com";
+
 function signup() {
   const email = document.getElementById("email").value.trim().toLowerCase();
   const password = document.getElementById("password").value.trim();
 
-  fetch("https://water-tracker-backend-l05z.onrender.com/signup", {
+
+  fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -24,7 +27,7 @@ function goLogin() {
   window.location.href = "login.html";
 }
 
-//// 🌊 water cursor effect
+// 🌊 water cursor effect
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 

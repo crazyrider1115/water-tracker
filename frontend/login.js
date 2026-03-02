@@ -1,21 +1,21 @@
+const BASE_URL = "https://water-tracker-backend-l05z.onrender.com";
+
 console.log("login.js loaded");
 
 function signup() {
   const email = document.getElementById("email").value.trim().toLowerCase();
   const password = document.getElementById("password").value.trim();
 
-  console.log("SENDING:", email, password); // 👈 ADD THIS
-
-  fetch("https://water-tracker-backend-l05z.onrender.com/signup"), {
+  fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ email, password })
-  }
+  }) // ✅ FIXED HERE
   .then(res => res.text())
-  .then(data => alert(data));
-  
+  .then(data => alert(data))
+  .catch(err => console.error(err)); // optional but useful
 }
 
 function goSignup() {
@@ -26,7 +26,7 @@ function login() {
   const email = document.getElementById("email").value.trim().toLowerCase();
   const password = document.getElementById("password").value.trim();
 
-  fetch("https://water-tracker-backend-l05z.onrender.com/login", {
+  fetch(`${BASE_URL}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -37,15 +37,13 @@ function login() {
     if (!res.ok) throw new Error("Invalid credentials");
     return res.text();
   })
-  .then(data => {
+  .then(() => {
     const status = document.getElementById("status");
 
     status.innerHTML = "✅ Login successful";
     status.style.color = "#2e7d32";
 
-    localStorage.setItem("user", email); // 🔥 IMPORTANT
-
-    console.log("Redirecting..."); // 👈 DEBUG
+    localStorage.setItem("user", email);
 
     setTimeout(() => {
       window.location.href = "home.html";
