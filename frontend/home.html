@@ -6,9 +6,20 @@
 </head>
 <body>
 
+<!-- 🌊 WATER BACKGROUND -->
+<div id="waterFill"></div>
+
 <div class="container">
+
+  <!-- 👤 PROFILE BUTTON -->
+  <button class="profile-btn" onclick="goProfile()">👤</button>
+
   <div class="card">
     <h1 class="title">💧 Water Tracker</h1>
+
+    <!-- GOAL -->
+    <input id="goalInput" placeholder="Set goal (ml)">
+    <button class="btn" onclick="setGoal()">Set Goal</button>
 
     <p id="waterText">0 / 2000 ml</p>
 
@@ -17,9 +28,9 @@
       <button onclick="addWater(500)">+500 ml</button>
     </div>
 
-    <button class="btn" onclick="goProfile()">Profile</button>
     <button class="btn" onclick="logout()">Logout</button>
   </div>
+
 </div>
 
 <script src="home.js"></script>

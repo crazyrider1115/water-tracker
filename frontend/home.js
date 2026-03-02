@@ -6,6 +6,15 @@ if (!email) {
   window.location.href = "index.html";
 }
 
+// 🔥 LOAD GOAL
+let goal = localStorage.getItem("goal") || 2000;
+
+// 🔥 LOAD WATER ON START
+window.onload = () => {
+  updateUI();
+};
+
+// ➕ ADD WATER
 function addWater(amount) {
   fetch(`${BASE_URL}/update-water`, {
     method: "POST",
@@ -14,14 +23,51 @@ function addWater(amount) {
   })
   .then(res => res.json())
   .then(data => {
-    document.getElementById("waterText").innerText = `${data.water} / 2000 ml`;
+    updateUI(data.water);
   });
 }
 
+// 🎯 SET GOAL
+function setGoal() {
+  const input = document.getElementById("goalInput").value;
+  if (!input) return;
+
+  goal = parseInt(input);
+  localStorage.setItem("goal", goal);
+
+  updateUI();
+}
+
+// 🔄 UPDATE UI
+function updateUI(currentWater) {
+
+  if (currentWater === undefined) {
+    fetch(`${BASE_URL}/get-water`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ email })
+    })
+    .then(res => res.json())
+    .then(data => updateUI(data.water));
+    return;
+  }
+
+  document.getElementById("waterText").innerText =
+    `${currentWater} / ${goal} ml`;
+
+  // 🌊 WATER FILL %
+  let percent = (currentWater / goal) * 100;
+  if (percent > 100) percent = 100;
+
+  document.getElementById("waterFill").style.height = percent + "%";
+}
+
+// 👤 PROFILE
 function goProfile() {
   window.location.href = "profile.html";
 }
 
+// 🚪 LOGOUT
 function logout() {
   localStorage.removeItem("user");
   window.location.href = "index.html";
