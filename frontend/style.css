@@ -1,62 +1,117 @@
-/* 🌍 GLOBAL */
-body {
+/* 🌍 GLOBAL RESET */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDByN2RqdjZmanpwd3g4eXh0a2hwcHE2YTJoa3ZjcXk3ZHVzYWFwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s1iF2QudmlgXIWMQf4/giphy.gif") no-repeat center center/cover;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 📦 LAYOUT */
-.container {
+body {
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDByN2RqdjZmanpwd3g4eXh0a2hwcHE2YTJoa3ZjcXk3ZHVzYWFwNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/s1iF2QudmlgXIWMQf4/giphy.gif") no-repeat center center/cover;
   display: flex;
-  flex-direction: column; /* 🔥 IMPORTANT */
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  color: white;
 }
 
-/* 🧾 CARD */
+/* 📦 MAIN CONTAINER */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🧾 CARD (USED FOR LOGIN + SIGNUP) */
 .card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
   padding: 30px;
   border-radius: 20px;
   width: 320px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 /* 🏷️ TITLE */
 .title {
-  font-style: italic;
-  font-weight: 600;
-  color: white;
+  font-size: 28px;
+  font-weight: bold;
   margin-bottom: 20px;
-}
-.title {
-  text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-.title {
-  font-family: 'Send Flowers', cursive;
-  font-size: 42px;
-  letter-spacing: 2px;
-  text-align: center;
-  color: white;
+  letter-spacing: 1px;
 }
 
 /* 🔤 INPUT FIELDS */
 .card input {
-  width: 250px;   /* 👉 EDIT WIDTH HERE */
-  height: 40px;   /* 👉 EDIT HEIGHT HERE */
+  width: 100%;
+  height: 45px;
   margin: 10px 0;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.85);
+  font-size: 14px;
 }
 
-/* 🔢 PERCENT TEXT */
+/* ✨ INPUT FOCUS EFFECT */
+.card input:focus {
+  box-shadow: 0 0 10px rgba(0,188,212,0.7);
+}
+
+/* 🔘 BUTTONS */
+.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 20px;
+  border: none;
+  background: #00bcd4;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: #4dd0e1;
+  transform: scale(1.03);
+}
+
+.btn:active {
+  background: #0288d1;
+}
+
+/* 🧾 STATUS TEXT */
+#status {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* 🌊 WATER TRACKER UI */
+#waterText {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #004d40;
+}
+
 #percent {
   font-size: 18px;
   font-weight: bold;
+}
+
+/* 📊 FLOATING PERCENT */
+#floatingPercent {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #004d40;
+  background: rgba(255,255,255,0.7);
+  padding: 10px 15px;
+  border-radius: 15px;
 }
 
 /* ⚙️ HEADER */
@@ -66,6 +121,7 @@ body {
   align-items: center;
 }
 
+/* ☰ SETTINGS BUTTON */
 .settings-btn {
   border: none;
   background: none;
@@ -73,7 +129,7 @@ body {
   cursor: pointer;
 }
 
-/* 📂 MENU */
+/* 📂 DROPDOWN MENU */
 .menu {
   display: none;
   margin: 10px 0;
@@ -90,6 +146,8 @@ body {
   font-weight: bold;
   margin-top: 10px;
 }
+
+/* 🔥 SHAKE ANIMATION */
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-3px); }
@@ -102,103 +160,7 @@ body {
   animation: shake 0.3s;
 }
 
-#floatingPercent {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 26px;
-  font-weight: bold;
-  color: #004d40;
-  background: rgba(255,255,255,0.6);
-  padding: 10px 15px;
-  border-radius: 15px;
-}
-#waterText {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0;
-  color: #004d40;
-}
-.buttons button {
-  margin: 8px;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 15px;
-  background: #00bcd4;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.buttons button:hover {
-  background: #4dd0e1;
-  transform: scale(1.05);
-}
-.login-card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 30px;
-  width: 320px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.3);
-}
-
-/* ✨ TITLE */
-.title {
-  text-align: center;
-  font-style: italic;
-  font-weight: 600;
-  font-size: 28px;
-  color: white;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-}
-
-/* 🔤 INPUTS */
-.login-card input {
-  width: 100%;
-  height: 45px;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  background: rgba(255,255,255,0.8);
-}
-
-/* 💙 BUTTONS */
-.btn {
-  width: 100%;
-  padding: 12px;
-  border-radius: 20px;
-  border: none;
-  background: #00bcd4;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: 0.25s;
-}
-
-.btn:hover {
-  background: #4dd0e1;
-  transform: scale(1.03);
-}
-
-.btn:active {
-  background: #0288d1;
-}
-
-/* 🧾 STATUS */
-#status {
-  margin-top: 10px;
-  font-weight: bold;
-}
-.login-card input:focus {
-  box-shadow: 0 0 8px rgba(0,188,212,0.6);
-}
-/* 🎥 VIDEO BACKGROUND */
+/* 🎥 VIDEO BACKGROUND (OPTIONAL) */
 #bgVideo {
   position: fixed;
   top: 0;
