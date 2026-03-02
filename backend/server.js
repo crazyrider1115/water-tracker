@@ -4,16 +4,16 @@ const cors = require("cors");
 
 const app = express();
 
-// ✅ MongoDB
+// MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Atlas connected"))
   .catch(err => console.log(err));
 
-// ✅ Middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ✅ Schema
+// Schema
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
@@ -23,12 +23,12 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-// ✅ Routes
+// Routes
 app.get("/", (req, res) => {
-  console.log("Server hit!");
   res.send("Backend working");
 });
 
+// Signup
 app.post("/signup", async (req, res) => {
   const { email, password } = req.body;
 
@@ -44,45 +44,20 @@ app.post("/signup", async (req, res) => {
   res.send("Signup successful");
 });
 
+// Login
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const user = await User.findOne({ email, password });
-
-  if (user) res.send("Login successful");
-  else res.status(401).send("Invalid credentials");
-});
-
-app.post("/update-water", async (req, res) => {
-  const { email, amount } = req.body;
-
   const user = await User.findOne({ email });
 
-  user.water += amount;
-  await user.save();
+  if (!user) return res.status(401).send("User not found");
+  if (user.password !== password) return res.status(401).send("Wrong password");
 
-  res.json({ water: user.water });
+  res.send("Login successful");
 });
 
-app.post("/get-water", async (req, res) => {
-  const { email } = req.body;
-
-  const user = await User.findOne({ email });
-
-  const today = new Date().toDateString();
-
-  if (user.lastUpdated !== today) {
-    user.water = 0;
-    user.lastUpdated = today;
-    await user.save();
-  }
-
-  res.json({ water: user.water });
-});
-
-// ✅ IMPORTANT FOR RENDER
+// Start server
 const PORT = process.env.PORT || 3000;
-
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
