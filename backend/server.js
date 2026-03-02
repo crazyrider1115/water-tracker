@@ -1,11 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI)
-<<<<<<< HEAD
-  .then(() => console.log("✅ MongoDB connected"))
-=======
   .then(() => console.log("MongoDB Atlas connected"))
->>>>>>> 53b8cd7 (connected atlas)
   .catch(err => console.log(err));
 
 const userSchema = new mongoose.Schema({
