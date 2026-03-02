@@ -6,10 +6,9 @@ if (!email) {
   window.location.href = "index.html";
 }
 
-// 🔥 LOAD GOAL
-let goal = localStorage.getItem("goal") || 2000;
+// ✅ FIX: always number
+let goal = parseInt(localStorage.getItem("goal")) || 2000;
 
-// 🔥 LOAD WATER ON START
 window.onload = () => {
   updateUI();
 };
@@ -30,7 +29,8 @@ function addWater(amount) {
 // 🎯 SET GOAL
 function setGoal() {
   const input = document.getElementById("goalInput").value;
-  if (!input) return;
+
+  if (!input || isNaN(input)) return;
 
   goal = parseInt(input);
   localStorage.setItem("goal", goal);
@@ -52,14 +52,16 @@ function updateUI(currentWater) {
     return;
   }
 
+  // ✅ FIXED GOAL DISPLAY
   document.getElementById("waterText").innerText =
     `${currentWater} / ${goal} ml`;
 
-  // 🌊 WATER FILL %
+  // 🌊 CALCULATE FILL
   let percent = (currentWater / goal) * 100;
   if (percent > 100) percent = 100;
 
-  document.getElementById("waterFill").style.height = percent + "%";
+  // 🌊 APPLY FILL
+  document.getElementById("waterMask").style.height = percent + "%";
 }
 
 // 👤 PROFILE

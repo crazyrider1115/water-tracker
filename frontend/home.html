@@ -6,12 +6,17 @@
 </head>
 <body>
 
-<!-- 🌊 WATER BACKGROUND -->
-<div id="waterFill"></div>
+<!-- 🎥 WATER VIDEO BACKGROUND -->
+<video id="bgVideo" autoplay muted loop>
+  <source src="https://cdn.pixabay.com/video/2017/05/22/9226-217857756_large.mp4" type="video/mp4">
+</video>
+
+<!-- 🌊 WATER MASK (controls fill height) -->
+<div id="waterMask"></div>
 
 <div class="container">
 
-  <!-- 👤 PROFILE BUTTON -->
+  <!-- 👤 PROFILE -->
   <button class="profile-btn" onclick="goProfile()">👤</button>
 
   <div class="card">
