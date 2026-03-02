@@ -2,43 +2,45 @@
 <html>
 <head>
   <title>Water Tracker</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h1>💧 Water Tracker</h1>
+<div class="container">
 
-<!-- SIGNUP -->
-<h2>Signup</h2>
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button onclick="signup()">Signup</button>
+  <!-- LEFT SIDE -->
+  <div class="card">
+    <h1 class="title">💧 Water Tracker</h1>
 
-<!-- LOGIN -->
-<h2>Login</h2>
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button onclick="login()">Login</button>
+    <h2>Signup</h2>
+    <input id="signupEmail" placeholder="Email">
+    <input id="signupPassword" type="password" placeholder="Password">
+    <button class="btn" onclick="signup()">Signup</button>
 
-<p id="status"></p>
+    <h2 style="margin-top:20px;">Login</h2>
+    <input id="loginEmail" placeholder="Email">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button class="btn" onclick="login()">Login</button>
 
-<hr>
+    <button class="btn" onclick="logout()" style="margin-top:15px;">Logout</button>
 
-<!-- TRACKER -->
-<div id="tracker" style="display:none;">
-  <p id="progress">0 / 2000 ml</p>
+    <p id="status"></p>
+  </div>
 
-  <button onclick="addWater(250)">+250 ml</button>
-  <button onclick="addWater(500)">+500 ml</button>
+  <!-- RIGHT SIDE (WATER TRACKER) -->
+  <div class="card" style="margin-left: 30px;">
+    <h2>Water Intake</h2>
+
+    <p id="waterText">0 / 2000 ml</p>
+
+    <div class="buttons">
+      <button onclick="addWater(250)">+250 ml</button>
+      <button onclick="addWater(500)">+500 ml</button>
+    </div>
+  </div>
+
 </div>
 
-<button onclick="logout()">Logout</button>
-
-<!-- ✅ IMPORTANT: JS LOAD -->
-<script src="/script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
