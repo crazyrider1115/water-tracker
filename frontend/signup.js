@@ -6,26 +6,19 @@ function signup() {
 
   fetch(`${BASE_URL}/signup`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ email, password })
   })
   .then(res => res.text())
   .then(data => {
     document.getElementById("status").innerText = data;
-    document.getElementById("status").style.color = "green";
 
     setTimeout(() => {
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     }, 1000);
-  })
-  .catch(err => {
-    document.getElementById("status").innerText = "Error";
-    document.getElementById("status").style.color = "red";
   });
 }
 
 function goLogin() {
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }

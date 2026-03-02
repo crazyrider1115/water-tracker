@@ -10,9 +10,7 @@ function login() {
 
   fetch(`${BASE_URL}/login`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: {"Content-Type": "application/json"},
     body: JSON.stringify({ email, password })
   })
   .then(res => {
@@ -21,16 +19,9 @@ function login() {
   })
   .then(() => {
     localStorage.setItem("user", email);
-
-    document.getElementById("status").innerText = "✅ Login successful";
-    document.getElementById("status").style.color = "green";
-
-    setTimeout(() => {
-      window.location.href = "home.html";
-    }, 1000);
+    window.location.href = "home.html";
   })
   .catch(err => {
     document.getElementById("status").innerText = err.message;
-    document.getElementById("status").style.color = "red";
   });
 }

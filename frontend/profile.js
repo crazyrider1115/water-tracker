@@ -1,19 +1,16 @@
-window.onload = function () {
-  const email = localStorage.getItem("user");
+const email = localStorage.getItem("user");
 
-  if (!email) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  document.getElementById("userEmail").innerText = email;
-};
-
-function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "login.html";
+if (!email) {
+  window.location.href = "index.html";
 }
+
+document.getElementById("userEmail").innerText = email;
 
 function goHome() {
   window.location.href = "home.html";
+}
+
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "index.html";
 }

@@ -2,42 +2,24 @@
 <html>
 <head>
   <title>Home</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="floatingPercent">0%</div>
+
 <div class="container">
-
   <div class="card">
-<p id="waterText">0 ml / 2000 ml</p>
-    <!-- HEADER -->
-    <div class="header">
-      <h2 id="title"></h2>
-      <button class="settings-btn" onclick="toggleMenu()">⚙️</button>
-    </div>
+    <h1 class="title">💧 Water Tracker</h1>
 
-    <div id="menu" class="menu">
-      <button onclick="goProfile()">Profile</button>
-      <button onclick="logout()">Logout</button>
-    </div>
+    <p id="waterText">0 / 2000 ml</p>
 
-    <!-- PROGRESS -->
-
-    <p id="goalMsg"></p>
-
-    <!-- GOAL INPUT -->
-    <input id="goalInput" placeholder="Set goal (ml)">
-    <button class="btn" onclick="setGoal()">Set Goal</button>
-
-    <!-- WATER BUTTONS -->
     <div class="buttons">
       <button onclick="addWater(250)">+250 ml</button>
       <button onclick="addWater(500)">+500 ml</button>
-      <button class="btn" onclick="resetWater()">Reset Water</button>
     </div>
 
+    <button class="btn" onclick="goProfile()">Profile</button>
+    <button class="btn" onclick="logout()">Logout</button>
   </div>
-
 </div>
 
 <script src="home.js"></script>
