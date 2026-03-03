@@ -179,10 +179,10 @@ Profile page with logout button
 
 [Team]
 <p align="center">
-  <img src="team_phot.jpeg" alt="Deeva and Ashlena" width="100%">
+  <img src="team_photo.jpeg" alt="Deeva and Ashlena" width="100%">
 </p>
 <p align="center">
-  <img src="team_photo2" alt="Deeva and Ashlena working" width="100%">
+  <img src="team_photo2.jpeg" alt="Deeva and Ashlena working" width="100%">
 </p>
 
 *Components*
