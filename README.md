@@ -114,7 +114,7 @@ No physical hardware or circuit setup is required, as this is a fully web-based 
 
 ### For Software:
 
-#### Screenshots (Add at least 3)
+#### Screenshots
 
 <p align="center">
   <img src="login.png" alt="Login Page" width="100%">
