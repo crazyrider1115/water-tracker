@@ -75,12 +75,13 @@ function updateStreak() {
 }
 
 function resetWater() {
-  fetch(`${BASE_URL}/update-water`, {
+  fetch(`${BASE_URL}/reset-water`, {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({ email, amount: -99999 })
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
   })
-  .then(() => fetchWater());
+  .then(res => res.json())
+  .then(data => updateUI(data.water));
 }
 
 function startBubbles() {

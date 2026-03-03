@@ -67,7 +67,7 @@ app.post("/update-water", async (req, res) => {
 
   if (!user) return res.status(404).send("User not found");
 
-  user.water = (user.water || 0) + Number(amount);
+  user.water = Math.max(0, (user.water || 0) + Number(amount));
   await user.save();
 
   console.log("NEW WATER:", user.water);
@@ -94,6 +94,22 @@ app.post("/get-water", async (req, res) => {
   }
 
   res.json({ water: user.water });
+});
+
+// ✅ RESET WATER
+app.post("/reset-water", async (req, res) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email: email.toLowerCase() });
+
+  if (!user) return res.status(404).send("User not found");
+
+  user.water = 0;
+  user.lastUpdated = new Date().toDateString();
+
+  await user.save();
+
+  res.json({ water: 0 });
 });
 
 // Start server
