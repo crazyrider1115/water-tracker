@@ -2,18 +2,27 @@ const BASE_URL = "https://water-tracker-backend-l05z.onrender.com";
 
 const email = localStorage.getItem("user");
 
-if (!email) {
-  window.location.href = "index.html";
+if (!email) window.location.href = "index.html";
+
+let goal = parseInt(localStorage.getItem("goal")) || 2000;
+let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchWater();
+  startBubbles();
+  updateStreak();
+});
+
+function fetchWater() {
+  fetch(`${BASE_URL}/get-water`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ email })
+  })
+  .then(res => res.json())
+  .then(data => updateUI(data.water));
 }
 
-// ✅ FIX: always number
-let goal = parseInt(localStorage.getItem("goal")) || 2000;
-
-window.onload = () => {
-  updateUI();
-};
-
-// ➕ ADD WATER
 function addWater(amount) {
   fetch(`${BASE_URL}/update-water`, {
     method: "POST",
@@ -21,55 +30,76 @@ function addWater(amount) {
     body: JSON.stringify({ email, amount })
   })
   .then(res => res.json())
-  .then(data => {
-    updateUI(data.water);
-  });
+  .then(data => updateUI(data.water));
 }
 
-// 🎯 SET GOAL
 function setGoal() {
   const input = document.getElementById("goalInput").value;
-
-  if (!input || isNaN(input)) return;
+  if (!input) return;
 
   goal = parseInt(input);
   localStorage.setItem("goal", goal);
-
-  updateUI();
+  fetchWater();
 }
 
-// 🔄 UPDATE UI
 function updateUI(currentWater) {
 
-  if (currentWater === undefined) {
-    fetch(`${BASE_URL}/get-water`, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({ email })
-    })
-    .then(res => res.json())
-    .then(data => updateUI(data.water));
-    return;
-  }
-
-  // ✅ FIXED GOAL DISPLAY
   document.getElementById("waterText").innerText =
     `${currentWater} / ${goal} ml`;
 
-  // 🌊 CALCULATE FILL
   let percent = (currentWater / goal) * 100;
-  if (percent > 100) percent = 100;
 
-  // 🌊 APPLY FILL
-  document.getElementById("waveContainer").style.height = percent + "%";
+  const wave = document.getElementById("waveContainer");
+
+  if (percent >= 100) {
+    document.getElementById("message").innerText = "🎉 Goal reached!";
+    streak++;
+    localStorage.setItem("streak", streak);
+    updateStreak();
+  }
+
+  if (percent > 100) {
+    document.getElementById("message").innerText = "⚠️ Goal exceeded!";
+    wave.classList.add("exceeded");
+    percent = 100;
+  } else {
+    wave.classList.remove("exceeded");
+  }
+
+  wave.style.height = percent + "%";
 }
 
-// 👤 PROFILE
+function updateStreak() {
+  document.getElementById("streakText").innerText =
+    `🔥 Streak: ${streak} days`;
+}
+
+function resetWater() {
+  fetch(`${BASE_URL}/update-water`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({ email, amount: -99999 })
+  })
+  .then(() => fetchWater());
+}
+
+function startBubbles() {
+  setInterval(() => {
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.style.left = Math.random() * 100 + "%";
+    bubble.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+    document.getElementById("bubbles").appendChild(bubble);
+
+    setTimeout(() => bubble.remove(), 5000);
+  }, 300);
+}
+
 function goProfile() {
   window.location.href = "profile.html";
 }
 
-// 🚪 LOGOUT
 function logout() {
   localStorage.removeItem("user");
   window.location.href = "index.html";

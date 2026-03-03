@@ -6,38 +6,36 @@
 </head>
 <body>
 
-<!-- 🎥 WATER VIDEO BACKGROUND -->
-<video id="bgVideo" autoplay muted loop>
-  <source src="https://cdn.pixabay.com/video/2017/05/22/9226-217857756_large.mp4" type="video/mp4">
-</video>
-
+<!-- 🌊 WAVES -->
 <div id="waveContainer">
   <div class="wave"></div>
   <div class="wave wave2"></div>
 </div>
 
-<!-- 🌊 WATER MASK (controls fill height) -->
-<div id="waterMask"></div>
+<!-- 🫧 BUBBLES -->
+<div id="bubbles"></div>
 
 <div class="container">
 
-  <!-- 👤 PROFILE -->
   <button class="profile-btn" onclick="goProfile()">👤</button>
 
   <div class="card">
     <h1 class="title">💧 Water Tracker</h1>
 
-    <!-- GOAL -->
+    <p id="streakText">🔥 Streak: 0 days</p>
+
     <input id="goalInput" placeholder="Set goal (ml)">
     <button class="btn" onclick="setGoal()">Set Goal</button>
 
     <p id="waterText">0 / 2000 ml</p>
+    <p id="message"></p>
 
     <div class="buttons">
       <button onclick="addWater(250)">+250 ml</button>
       <button onclick="addWater(500)">+500 ml</button>
     </div>
 
+    <button class="btn" onclick="resetWater()">Reset</button>
     <button class="btn" onclick="logout()">Logout</button>
   </div>
 
