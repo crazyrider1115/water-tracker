@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# WATER TRACKER
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: Pina Colada
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Ashlena Rose - AISAT
+- Member 2: Deeva K Samson - AISAT
 
 ### Hosted Project Link
-[mention your project hosted link here]
+https://water-tracker-hazel.vercel.app/index.html
 
 ### Project Description
-[2-3 lines about what your project does]
+are u drinking (water) everyday bbg? u sure u aint lying? if not track yo intake with this lil site baby.
 
 ### The Problem statement
-[What problem are you solving?]
+People often forget to drink water
 
 ### The Solution
-[How are you solving it?]
+Since they have a tracker theyll have something to engage and remind themselves to hydrate <3
 
 ---
 
@@ -31,49 +31,82 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: JavaScript, HTML, CSS
+- Frameworks used: Node.js (Express)
+- Libraries used: Mongoose, CORS
+- Tools used: VS Code, Git, GitHub, MongoDB Atlas, Render, Vercel
 
 **For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
+- Main components: Computer or Laptop, Internet Connection
+- Specifications: 
+  • Minimum 4GB RAM  
+  • Modern Web Browser (Chrome, Edge, Firefox)  
+  • Stable Internet connection for backend communication  
+- Tools required: 
+  • VS Code (for development)
+  • Git (version control)
+  • Web browser (testing)
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: User Authentication System  
+  Secure signup and login functionality using MongoDB database.
 
----
+- Feature 2: Daily Water Tracking  
+  Users can add water intake (+250ml / +500ml) and track real-time progress.
+
+- Feature 3: Custom Goal Setting  
+  Users can set their own daily water intake goal and monitor progress percentage.
+
+- Feature 4: Animated Water Progress UI  
+  Dynamic wave animation background with glow effects, bubbles, and overflow indicator when goal is exceeded.
+
+- Feature 5: Daily Streak System  
+  Tracks consecutive days of meeting water goals to encourage consistency.
+
+- Feature 6: Reset Functionality  
+  Allows users to reset daily water intake safely.
 
 ## Implementation
 
 ### For Software:
 
 #### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
-```
+
+# Clone the repository
+git clone https://github.com/crazyrider1115/water-tracker.git
+
+# Go into project folder
+cd water-tracker
+
+# Install backend dependencies
+cd backend
+npm install
+
+# (Frontend is static, no install needed)
 
 #### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
+
+# Start backend server
+cd backend
+node server.js
+
+# Frontend
+# Open frontend/index.html in browser
+# OR use Live Server in VS Code
 
 ### For Hardware:
 
 #### Components Required
-[List all components needed with specifications]
+- Computer or Laptop
+- Internet connection
+- Web browser (Chrome/Edge recommended)
 
 #### Circuit Setup
-[Explain how to set up the circuit]
+No physical hardware or circuit setup is required, as this is a fully web-based application.
 
 ---
 
@@ -83,14 +116,40 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+<p align="center">
+  <img src="login.png" alt="Login Page" width="100%">
+</p>
+login page.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+<p align="center">
+  <img src="signup.png" alt="SignUp Page" width="100%">
+</p>
+Sign Up Page
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<p align="center">
+  <img src="homepage.png" alt="Home Page" width="100%">
+</p>
+Home page. We can edit what out water intake goal for the day is.
+
+<p align="center">
+  <img src="filling_water.png" alt="Water being filled" width="100%">
+</p>
+Filling water as tracked by user
+
+<p align="center">
+  <img src="goal_reached.png" alt="Goal Reached" width="100%">
+</p>
+A text showing goal has been reached.
+
+<p align="center">
+  <img src="goal_exceeded.png" alt="Goal Exceeded" width="100%">
+</p>
+the filled moving water gets a red shade when the goal intake is exceeded.
+
+<p align="center">
+  <img src="profile_page.png" alt="Profile Page" width="100%">
+</p>
+Profile page with logout button
 
 #### Diagrams
 
@@ -118,16 +177,35 @@ List the key features of your project:
 
 #### Build Photos
 
-![Team](Add photo of your team here)
+[Team]
+<p align="center">
+  <img src="team_phot.jpeg" alt="Deeva and Ashlena" width="100%">
+</p>
+<p align="center">
+  <img src="team_photo2" alt="Deeva and Ashlena working" width="100%">
+</p>
 
-![Components](Add photo of your components here)
-*List out all components shown*
+*Components*
+Frontend: HTML, CSS, JavaScript
+Backend: Node.js with Express
+Database: MongoDB Atlas
+Deployment: Vercel (Frontend), Render (Backend)
+Tools: VS Code, GitHub
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+*Build*
+1. Designed the frontend using HTML, CSS, and JavaScript.
+2. Developed backend APIs using Node.js and Express.
+3. Integrated MongoDB Atlas for user authentication and data storage.
+4. Connected frontend with backend using fetch API.
+5. Implemented features like water tracking, goal setting, and streak system.
+6. Deployed backend on Render and frontend on Vercel.
 
-![Final](Add photo of final product here)
-*Explain the final build*
+*Final*
+Fully functional water tracking web application
+Users can sign up, log in, and track daily water intake
+Interactive UI with animated waves, bubbles, and progress tracking
+Goal setting, streak tracking, and reset functionality included
+Deployed and accessible online
 
 ---
 
@@ -361,12 +439,7 @@ python script.py -v --format json data.json
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
-
-*Explain what the video demonstrates - key features, user flow, technical highlights*
-
-### Additional Demos
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
+https://drive.google.com/file/d/1r8Zt1aSrMHwQqQ1Szlglcwrp0JCJPibg/view?usp=drive_link
 
 ---
 
@@ -374,19 +447,16 @@ python script.py -v --format json data.json
 
 If you used AI tools during development, document them here for transparency:
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+**Tool Used:** ChatGPT
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+**Purpose:** Mostly debugging and documentation. For styling and stuff.
 
 **Key Prompts Used:**
 - "Create a REST API endpoint for user authentication"
 - "Debug this async function that's causing race conditions"
 - "Optimize this database query for better performance"
 
-**Percentage of AI-generated code:** [Approximately X%]
+**Percentage of AI-generated code:** 10%
 
 **Human Contributions:**
 - Architecture design and planning
@@ -394,15 +464,12 @@ If you used AI tools during development, document them here for transparency:
 - Integration and testing
 - UI/UX design decisions
 
-*Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
-
 ---
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Ashlena Rose: Frontend development, UI/UX design, Database design etc.
+- Deeva K Samson: Backend development, Testing, Documentation etc.
 
 ---
 
