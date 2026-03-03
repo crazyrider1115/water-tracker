@@ -61,7 +61,7 @@ function updateUI(currentWater) {
   if (percent > 100) percent = 100;
 
   // 🌊 APPLY FILL
-  document.getElementById("waterMask").style.height = percent + "%";
+  document.getElementById("waveContainer").style.height = percent + "%";
 }
 
 // 👤 PROFILE
